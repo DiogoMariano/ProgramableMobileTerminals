@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">trabalho</string>
+    <string name="action_settings">Settings</string>
+    <string name="background">CHANGE BACKGROUND</string>
+    <string name="buttons">CHANGE BUTTONS</string>
+    <string name="font">CHANGE FONT</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+    <string name="cyan">Cyan</string>
+    <string name="magenta">Magenta</string>
+    <string name="black">Black</string>
+    <string name="set_color">Set</string>
+    <string name="cancel_color">Cancel</string>
+    <string name="back_message">Error</string>
+
+
+</resources>
