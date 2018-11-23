@@ -45,56 +45,25 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //media player
-        sounds = new Uri[4];
-            //Use parse method of the Uri class to obtain the Uri of a resource
-            //specified by a string
-        sounds[0] = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ringd);
-        //sounds[1] = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ring1);
-        //sounds[2] = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ring02);
-        //sounds[3] = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ring3);
+
         buttonPlayer = new MediaPlayer();
         buttonPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
-        buttonPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                    //Pause the backgroundPlayer
-                if(i==0){
-                    backgroundPlayer.pause();
-                    i=1;
-                }
-               else{
-                    backgroundPlayer.start();
-                    i=0;
-                }
-                    //Start the buttonPlayer
-                //mp.start();
-
-            }
-        });
-
-        buttonPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                backgroundPlayer.start();
-            }
-        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Reset the player
-                buttonPlayer.reset();
-                try {
-                        //Set Data source according to the current_sound value
-                    buttonPlayer.setDataSource(getApplicationContext(),sounds[current_sound]);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if(i==0){
+                    backgroundPlayer.pause();
+                    i=1;
                 }
-                    //Prepare the player asynchronously
-                buttonPlayer.prepareAsync();
-                    //No need to call start() since we call with onPreparedListener
+                else{
+                    backgroundPlayer.start();
+                    i=0;
+                }
+
             }
         });
 
